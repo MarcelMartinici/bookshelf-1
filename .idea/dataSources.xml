@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="2952312488">
+    <data-source source="LOCAL" name="Rails bookshelf: development" uuid="c3204ff8-4823-48c3-8775-3271b1380da8">
+      <driver-ref>postgresql</driver-ref>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:bookshelf_development</jdbc-url>
+      <user-name>iosintern6</user-name>
+      <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="Rails bookshelf: test" uuid="47b59bfa-e4f7-4d67-917a-30abce986640">
+      <driver-ref>postgresql</driver-ref>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:bookshelf_test</jdbc-url>
+      <user-name>iosintern6</user-name>
+      <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="Rails bookshelf: production" uuid="f3a91623-97d1-4cfb-8e9a-6b53d2323dfb">
+      <driver-ref>postgresql</driver-ref>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:bookshelf_production</jdbc-url>
+      <user-name>bookshelf</user-name>
+      <user-password>df96df8fdf97df8adfefdfe4dffcdff1df8ddfe8dfe5dfe5dfe1dff9dfe2dfefdfe6dfecdff5dfeedfebdffedfebdfe8dfebdff9dfefdff5dffadfebdff9dff9dffddfe5dff8dfeedf8ddff7df8adf8fdf94</user-password>
+      <libraries />
+    </data-source>
+  </component>
+</project>
+
