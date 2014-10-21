@@ -1,0 +1,25 @@
+<%= form_for :book, url: books_path do |f| %>
+    <p>
+      <%= f.label :title %><br>
+      <%= f.text_field :title %>
+    </p>
+
+    <p>
+      <%= f.label :author %><br>
+      <%= f.text_field :autor %>
+    </p>
+
+    <p>
+      <%= f.label :year %><br>
+      <%= f.date_field :year %>
+    </p>
+
+    <p>
+      <%= f.label :description %><br>
+      <%= f.text_area :description %>
+    </p>
+
+    <p>
+      <%= f.submit %>
+    </p>
+<% end %>
