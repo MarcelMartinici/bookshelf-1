@@ -10,6 +10,7 @@ class BooksController < ApplicationController
 
   def create
     @book = Book.new(book_params)
+    @author_name = params[:book][:author]
 
     if @book.save
       redirect_to @book
@@ -47,6 +48,12 @@ class BooksController < ApplicationController
   def show
     find_book
   end
+
+  def autor_name_check
+    author_name = params[:book][:author]
+        @book.author = author
+  end
+
 
   private
 
