@@ -1,5 +1,7 @@
 class Book < ActiveRecord::Base
 
+  belongs_to :author
+
   validates :title, :author, :year, presence: true
   validates :title, uniqueness: { scope: :year,
                                   message: "There can be only one issue a year",
