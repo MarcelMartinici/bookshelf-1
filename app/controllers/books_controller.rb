@@ -5,6 +5,7 @@ class BooksController < ApplicationController
   def new
 
     @book = Book.new
+
   end
 
 
@@ -41,9 +42,8 @@ class BooksController < ApplicationController
 
       @book.author.name = author_check
 
-      @book.save
-
       redirect_to @book
+
     else
       render "edit"
     end
@@ -55,6 +55,7 @@ class BooksController < ApplicationController
     @book.destroy
 
     redirect_to books_path
+
   end
 
   private
@@ -66,7 +67,9 @@ class BooksController < ApplicationController
   end
 
   def book_params
-    params.require(:book).permit(:title, :year, :description)
+
+    params.require(:book).permit(:title, :year, :description, :genre)
+
   end
 
 end
