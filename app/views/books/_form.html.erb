@@ -17,8 +17,8 @@
     </p>
 
     <p>
-      <%= f.label :author%><br>
-      <%= f.text_field :author%>
+      <%= label_tag 'Author' %><br>
+      <%= text_field_tag 'book[author_name]', @book.author.name %>
     </p>
 
     <p>
