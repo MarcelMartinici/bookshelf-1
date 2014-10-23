@@ -18,7 +18,7 @@
 
     <p>
       <%= label_tag 'Author' %><br>
-      <%= text_field_tag 'book[author_name]', @book.author.name %>
+      <%= text_field_tag 'book[author_name]', @book.author.try(:name) %>
     </p>
 
     <p>
@@ -31,11 +31,11 @@
       <%= f.text_field :genre %>
     </p>
 
+
     <p>
       <%= f.label :description %><br>
       <%= f.text_area :description %>
     </p>
-
     <p>
       <%= f.submit %>
     </p>

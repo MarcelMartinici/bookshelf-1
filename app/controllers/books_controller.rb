@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
 
-  before_action :find_book, only: [:edit, :update, :destroy, :show]
+  before_action :find_book, only: [:edit, :update, :destroy, :show, :authenticate_user!]
 
   def new
 
