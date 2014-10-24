@@ -5,6 +5,7 @@
 
 <table>
   <tr>
+    <th>Cover</th>
     <th>Title</th>
     <th>Author</th>
     <th>Year</th>
@@ -16,6 +17,7 @@
 
   <% @books.each do |book| %>
     <tr>
+      <td><%= image_tag book.cover.url, size: "20x20", alt: "Book cover" %></td>
       <td><%= book.title %></td>
       <td><%= book.author.name %></td>
       <td><%= book.year %></td>

@@ -32,9 +32,11 @@ gem 'devise'
 # User roles
 gem 'cancancan', '~> 1.9'
 
-# PRy
-
+# Pry
 gem "pry"
+
+# Paperclip - for file uploads
+gem "paperclip", "~> 4.2"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
