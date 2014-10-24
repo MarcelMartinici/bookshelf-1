@@ -1,6 +1,6 @@
 <h1>All listed books</h1>
 
-<%= link_to "Add a book", new_book_path %><br>
+<%= link_to "Add a book", new_book_path if can? :create, Book %><br>
 
 
 <table>
@@ -23,9 +23,9 @@
       <td><%= book.genre %></td>
       <td><%= book.user.email %></td>
       <td><%= link_to "Show", book_path(book) %> </td>
-      <td><%= link_to "Edit", edit_book_path(book) %></td>
+      <td><%= link_to "Edit", edit_book_path(book) if can? :manage, book %></td>
       <td><%= link_to "Delete", book_path(book),
-               method: :delete, data: { Confirm: "Are you sure?"} %></td>
+               method: :delete, data: { Confirm: "Are you sure?"} if can? :destroy, book %></td>
     </tr>
   <% end %>
 </table>

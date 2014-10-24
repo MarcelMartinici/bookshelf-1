@@ -1,4 +1,4 @@
-class User < ActiveRecord::Base
+ class User < ActiveRecord::Base
 
   # Include default devise modules. Others available are:
   #  :confirmable, :lockable, :timeoutable and :omniauthable
@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
 
   has_many :books
 
-  attr_accessor :name, :email
+#  attr_accessor :name, :email #CHECK _ WHY DELETES USER NAME FROM VIEWS
 
   # User::Roles
   # The available roles

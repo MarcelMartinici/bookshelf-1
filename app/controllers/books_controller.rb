@@ -1,10 +1,14 @@
 class BooksController < ApplicationController
 
-  before_action :find_book, only: [:edit, :update, :destroy, :show, :authenticate_user!]
+  load_and_authorize_resource :only => [:edit, :update, :destroy, :show, :create]
+
+  before_action :find_book, only: [:edit, :update, :destroy, :show]
 
   def new
 
     @book = Book.new
+
+    authorize! :new, @book
 
   end
 
@@ -26,8 +30,6 @@ class BooksController < ApplicationController
     @book = current_user.books.new(book_params)
 
     author_check
-
-
 
     if @book.save
       redirect_to @book
