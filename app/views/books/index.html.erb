@@ -21,7 +21,7 @@
       <td><%= book.year %></td>
       <td><%= book.description %></td>
       <td><%= book.genre %></td>
-      <td><%= book.user %></td>
+      <td><%= book.user.email %></td>
       <td><%= link_to "Show", book_path(book) %> </td>
       <td><%= link_to "Edit", edit_book_path(book) %></td>
       <td><%= link_to "Delete", book_path(book),

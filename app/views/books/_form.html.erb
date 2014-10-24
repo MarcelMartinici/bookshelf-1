@@ -38,6 +38,10 @@
     </p>
 
     <p>
+      <%= @book.user.try(:email) %>
+    </p>
+
+    <p>
       <%= f.submit %>
     </p>
 <% end %>
