@@ -38,6 +38,11 @@ gem "pry"
 # Paperclip - for file uploads
 gem "paperclip", "~> 4.2"
 
+gem 'bootstrap-sass'
+
+gem 'autoprefixer-rails'
+
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
