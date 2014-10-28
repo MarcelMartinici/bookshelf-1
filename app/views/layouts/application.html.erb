@@ -42,7 +42,7 @@
         <%= form_for(:user, :url => session_path(:user)) do |f| %>
             <% if user_signed_in? %>
                 Logged in as <strong><%= current_user.email %></strong>.
-                <%= link_to 'Edit profile', edit_user_registration_path, :class => 'btn btn-success' %> |
+                <%= link_to 'Edit profile', edit_user_registration_path, :class => 'btn btn-success' %>
                 <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'btn btn-success' %>
             <% else %>
                 <%= f.text_field :email, :class => "form-control" %>
@@ -51,7 +51,7 @@
                 <%= f.label :remember_me %>
                 <%= f.submit 'Sign in', :class => "btn btn-success"%>
                 <%= link_to "Sign up", new_user_registration_path, :class => 'btn btn-success' %>
-                <%= link_to "Forgot your password?", new_password_path(:user) %>
+                <!--<%= link_to "Forgot your password?", new_password_path(:user) %>-->
             <% end %>
         <% end %>
 
