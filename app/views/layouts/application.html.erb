@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Bookshelf</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <meta charset="utf-8">
@@ -12,15 +12,10 @@
   <meta name="author" content="">
   <link rel="icon" href="../../favicon.ico">
 
-  <title>Theme Template for Bootstrap</title>
-
   <!-- Bootstrap core CSS -->
   <link href="bootstrap.min.css" rel="stylesheet">
   <!-- Bootstrap theme -->
-  <link href="../../dist/css/bootstrap-theme.min.css" rel="stylesheet">
-
-  <!-- Custom styles for this template -->
-  <link href="bookshelf.css" rel="stylesheet">
+  <link href="bootstrap-theme.min.css" rel="stylesheet">
 
   <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!--[if lt IE 9]>
@@ -29,9 +24,8 @@
   <![endif]-->
 </head>
 <body>
-<body role="document">
 
-<!-- Fixed navbar -->
+
 <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
@@ -41,36 +35,28 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/">Yopeso Bookshelf</a>
+      <a class="navbar-brand" href="#">Yopeso Bookshelf</a>
     </div>
     <div class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="books">Book</a></li>
-        <li><a href="authors">Authors</a></li>
-        <li><a href="users">Users</a></li>
-        <li class="dropdown">
-           <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <span class="glyphicon glyphicon-user"></span> <%=current_user.try(:email)%> <span class="caret"></span></a>
-                  <ul class="dropdown-menu" role="menu">
-            <li class="dropdown-header">User menu</li>
-            <li class="divider"></li>
-            <%= form_for(:user, :url => session_path(:user)) do |f| %>
-              <% if user_signed_in? %>
-            <li><%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %></li>
-            <li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
-          </ul>
-              <% else %>
-                <%= f.text_field :email %>
-                <%= f.password_field :password %>
+      <div class="navbar-form navbar-right" role="form">
+        <%= form_for(:user, :url => session_path(:user)) do |f| %>
+            <% if user_signed_in? %>
+                Logged in as <strong><%= current_user.email %></strong>.
+                <%= link_to 'Edit profile', edit_user_registration_path, :class => 'btn btn-success' %> |
+                <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'btn btn-success' %>
+            <% else %>
+                <%= f.text_field :email, :class => "form-control" %>
+                <%= f.password_field :password, :class => "form-control" %>
                 <%= f.check_box :remember_me %>
                 <%= f.label :remember_me %>
-                <%= f.submit 'Sign in' %>
-                <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %>
+                <%= f.submit 'Sign in', :class => "btn btn-success"%>
+                <%= link_to "Sign up", new_user_registration_path, :class => 'btn btn-success' %>
                 <%= link_to "Forgot your password?", new_password_path(:user) %>
-              <% end %>
-          <% end %>
-        </li>
-      </ul>
-    </div><!--/.nav-collapse -->
+        <% end %>
+        <% end %>
+
+      </div>
+    </div><!--/.navbar-collapse -->
   </div>
 </div>
 
@@ -79,26 +65,49 @@
 
 <%= yield %>
 
+  <hr>
 
+  <footer>
+    <p>&copy; Yopeso 2014</p>
+  </footer>
+</div> <!-- /container -->
 
-<p class="navbar-text pull-right">
-  <%= form_for(:user, :url => session_path(:user)) do |f| %>
-      <% if user_signed_in? %>
-          Logged in as <strong><%= current_user.email %></strong>.
-          <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
-          <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link' %>
-      <% else %>
-          <%= f.text_field :email %>
-          <%= f.password_field :password %>
-          <%= f.check_box :remember_me %>
-          <%= f.label :remember_me %>
-          <%= f.submit 'Sign in' %>
-          <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link' %>
-          <%= link_to "Forgot your password?", new_password_path(:user) %>
-      <% end %>
-  <% end %>
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="../../dist/js/bootstrap.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
 
 </body>
 </html>
 
 
+
+<p class="navbar-text pull-right">
+  <% if user_signed_in? %>
+      Logged in as <strong><%= current_user.email %></strong>.
+      <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+      <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link' %>
+  <% else %>
+      <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link' %> |
+      <%= link_to "Login", new_user_session_path, :class => 'navbar-link' %>
+  <% end %>
+
+
+    <%= form_for(:user, :url => session_path(:user)) do |f| %>
+        <% if user_signed_in? %>
+            Logged in as <strong><%= current_user.email %></strong>.
+            <%= link_to 'Edit profile', edit_user_registration_path, :class => 'btn btn-success' %> |
+            <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'btn btn-success' %>
+        <% else %>
+            <%= f.text_field :email, :class => "form-control" %>
+            <%= f.password_field :password, :class => "form-control" %>
+            <%= f.check_box :remember_me %>
+            <%= f.label :remember_me %>
+            <%= f.submit 'Sign in', :class => "btn btn-success"%>
+            <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link' %>
+            <%= link_to "Forgot your password?", new_password_path(:user) %>
+        <% end %>
+    <% end %>
