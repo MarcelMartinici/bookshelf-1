@@ -14,9 +14,7 @@ class BooksController < ApplicationController
 
 
   def index
-
-    @books = Book.all
-
+      @books = Book.search(params[:search])
   end
 
   def find_book
@@ -77,3 +75,4 @@ class BooksController < ApplicationController
   end
 
 end
+

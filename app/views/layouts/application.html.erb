@@ -35,7 +35,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Yopeso Bookshelf</a>
+      <a class="navbar-brand" href="/">Yopeso Bookshelf</a>
     </div>
     <div class="navbar-collapse collapse">
       <div class="navbar-form navbar-right" role="form">
@@ -67,6 +67,12 @@
   <div class="container">
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+    <%= form_tag books_path, :method => 'get' do %>
+        <p>
+          <%= text_field_tag :search, params[:search] %>
+          <%= submit_tag "Search", :name => nil %>
+        </p>
+    <% end %>
     <%= yield %>
   </div>
 </div>

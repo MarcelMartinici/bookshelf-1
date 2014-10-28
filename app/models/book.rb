@@ -11,4 +11,21 @@ class Book < ActiveRecord::Base
                                   message: "There can be only one issue a year",
                                   case_sensitive: false }
 
+
+  scope :search, -> term {
+    if term.present?
+      where('title ILIKE :term OR description ILIKE :term OR authors.name ILIKE :term', term: "%#{term}%").
+          eager_load(:author)
+    end
+  }
+
+  # def self.search(search)
+  #   if search != nil
+  #     where('title ILIKE ? OR description ILIKE ? OR authors.name ILIKE ?', "%#{search}%", "%#{search}%", "%#{search}%")
+  #     .joins('LEFT JOIN authors ON books.author_id = authors.id')
+  #   else
+  #     scoped
+  #   end
+ #  end
 end
+
