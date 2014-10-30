@@ -4,6 +4,7 @@ class Book < ActiveRecord::Base
   belongs_to :user
   has_many :books_genres
   has_many :genres, :through => :books_genres
+  has_many :ratings
 
   validates :title, :author_id, :year, presence: true
   validates :title, uniqueness: { scope: :year,
@@ -21,6 +22,21 @@ class Book < ActiveRecord::Base
           eager_load(:author)
     end
   }
+
+  def avg_rating
+    average_rating = 0.0
+    count = 0
+    ratings.each do |rating|
+      average_rating += rating.stars
+      count += 1
+    end
+
+    if count != 0
+      (average_rating / count)
+    else
+      count
+    end
+  end
 
   # def self.search(search)
   #   if search != nil

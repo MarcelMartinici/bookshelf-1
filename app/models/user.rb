@@ -6,6 +6,7 @@
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :books
+  has_many :ratings
 
 #  attr_accessor :name, :email #CHECK _ WHY DELETES USER NAME FROM VIEWS
 
