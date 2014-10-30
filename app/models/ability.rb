@@ -6,7 +6,7 @@ class Ability
   def initialize(user)
     # Define abilities for the passed in user here. For example:
 
-   alias_action :create, :read, :update, :destroy, :to => :crud
+   alias_action :read, :update, :destroy, :to => :crud
 
    user ||= User.new # guest user (not logged in)
 
@@ -17,7 +17,8 @@ class Ability
        can :create, Book
      elsif user.is?("default")
        can :read, Book
-       can :crud, Book, :user_id => user.id
+       can :create, Book
+       can :manage, Book, :user_id => user.id
       else
        can :read, :all
      end

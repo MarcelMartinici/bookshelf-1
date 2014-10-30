@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
 
-  load_and_authorize_resource :only => [:edit, :update, :destroy, :show, :create]
+  load_and_authorize_resource :only => [:edit, :update, :destroy, :show]
 
   before_action :find_book, only: [:edit, :update, :destroy, :show]
 
