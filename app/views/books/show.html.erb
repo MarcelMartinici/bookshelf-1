@@ -19,7 +19,7 @@
 
 <p>
   <strong>Genre:</strong>
-  <%= @book.genre %>
+  <%= @book.genres.map { |genre| genre.tag }.join(', ') %>
 </p>
 
 <p>

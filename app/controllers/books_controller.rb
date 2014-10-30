@@ -28,6 +28,7 @@ class BooksController < ApplicationController
     @book = current_user.books.new(book_params)
 
     author_check
+    genre_check
 
     if @book.save
       redirect_to @book
@@ -43,6 +44,8 @@ class BooksController < ApplicationController
     if @book.update(book_params)
 
       @book.author.name = author_check
+
+      @book.genres = genre_check
 
       redirect_to @book
 
@@ -65,6 +68,12 @@ class BooksController < ApplicationController
   def author_check
 
     @book.author = Author.create_from_name(params[:book][:author_name])
+
+  end
+
+  def genre_check
+
+    @book.genres << Genre.create_from_name(params[:book][:genres])
 
   end
 
