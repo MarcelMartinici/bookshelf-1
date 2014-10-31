@@ -1,0 +1,27 @@
+<h1>All listed genres</h1>
+
+<%= link_to "Add a book", new_book_path if can? :create, Book %><br>
+
+<div class="col-md-12">
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>Genres</th>
+      <th>Books</th>
+      <th colspan="1"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @genres.each do |genre| %>
+        <tr>
+          <td><%= link_to genre.tag, genre_path(genre) %></td>
+          <td><% genre.books.each do |book| %>
+             <%= link_to book.title, book_path(book) %>
+             <% end %>
+          </td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+</div>

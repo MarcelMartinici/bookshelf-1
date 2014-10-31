@@ -1,0 +1,13 @@
+<p>
+  <strong>Genre Tag:</strong>
+  <%= @genre.tag %>
+</p>
+  <strong>Books:</strong>
+<ul>
+    <% @genre.books.each do |book| %>
+      <li><%= link_to(book.title, book_path(book)) %> </li>
+    <% end %>
+</ul>
+</p>
+
+<%= link_to "Back", genres_path %>

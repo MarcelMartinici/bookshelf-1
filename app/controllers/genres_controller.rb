@@ -1,9 +1,9 @@
-class AuthorsController < ApplicationController
+class GenresController < ApplicationController
 
   before_action :find_author, only: [:show]
 
   def index
-    @authors = Author.all
+    @genres = Genre.all
   end
 
   def show
@@ -12,9 +12,8 @@ class AuthorsController < ApplicationController
 
   def find_author
 
-    @author = Author.find(params[:id])
+    @genre = Genre.find(params[:id])
 
   end
-
 
 end

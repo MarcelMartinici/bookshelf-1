@@ -1,0 +1,27 @@
+<h1>All listed Authors</h1>
+
+<%= link_to "Add a book", new_book_path if can? :create, Book %><br>
+
+<div class="col-md-12">
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Books</th>
+      <th colspan="1"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @authors.each do |author| %>
+        <tr>
+          <td><%= link_to author.name, author_path(author) %></td>
+          <td><% author.books.each do |book| %>
+             <%= link_to book.title, book_path(book) %>
+             <% end %>
+          </td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+</div>

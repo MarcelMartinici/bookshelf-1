@@ -28,7 +28,7 @@
 
 <p>
   <strong>Author:</strong>
-  <%= @book.author.name %>
+  <%= link_to @book.author.name, author_path(@book.author.id) %>
 </p>
 
 <p>
@@ -38,7 +38,11 @@
 
 <p>
   <strong>Genre:</strong>
-  <%= @book.genres.map { |genre| genre.tag }.join(', ') %>
+  <ul>
+   <% @book.genres.map do |genre| %>
+  <li><%= link_to genre.tag, genre_path(genre) %></li>
+    <% end %>
+  </ul>
 </p>
 
 <p>
