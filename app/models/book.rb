@@ -24,6 +24,7 @@ class Book < ActiveRecord::Base
   }
 
   def avg_rating
+
     average_rating = 0.0
     count = 0
     ratings.each do |rating|
