@@ -3,10 +3,8 @@ class AuthorsController < ApplicationController
   before_action :find_author, only: [:show]
 
   def index
-    @authors = Author.all
-  end
 
-  def show
+    @authors = Author.all
 
   end
 

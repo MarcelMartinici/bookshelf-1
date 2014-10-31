@@ -1,4 +1,4 @@
-<h1>All listed genres</h1>
+<h1>All listed users</h1>
 
 <%= link_to "Add a book", new_book_path if can? :create, Book %><br>
 
@@ -6,16 +6,16 @@
   <table class="table table-striped">
     <thead>
     <tr>
-      <th>Genres</th>
+      <th>Name</th>
       <th>Books</th>
       <th colspan="1"></th>
     </tr>
     </thead>
     <tbody>
-    <% @genres.each do |genre| %>
+    <% @users.each do |user| %>
         <tr>
-          <td><%= link_to genre.tag, genre_path(genre) %></td>
-          <td><% genre.books.each do |book| %>
+          <td><%= link_to user.email, user_path(user) %></td>
+          <td><% user.books.each do |book| %>
              <%= link_to book.title, book_path(book) %>;
              <% end %>
           </td>
