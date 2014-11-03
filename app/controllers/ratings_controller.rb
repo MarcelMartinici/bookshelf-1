@@ -1,6 +1,6 @@
 class RatingsController < ApplicationController
 
-  before_filter :js_logged_in
+  before_action :js_logged_in
 
   def create
     @rating = Rating.new(rating_params)

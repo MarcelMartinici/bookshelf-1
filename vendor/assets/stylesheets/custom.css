@@ -11,3 +11,7 @@ li.rating_star {
 li.rating_star.on {
     background: url(/images/star.png) 0 -25px;
 }
+
+.my_new_class {
+    float: right;
+}
