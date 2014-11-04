@@ -42,6 +42,7 @@ gem 'bootstrap-sass'
 
 gem 'autoprefixer-rails'
 
+gem 'ratyrate', :github => 'wazery/ratyrate'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

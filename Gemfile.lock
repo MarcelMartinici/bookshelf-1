@@ -1,3 +1,9 @@
+GIT
+  remote: git://github.com/wazery/ratyrate.git
+  revision: ad4de39036612b3cad118582d42921dc8763587c
+  specs:
+    ratyrate (1.2.2.alpha)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -151,6 +157,7 @@ DEPENDENCIES
   pg
   pry
   rails (= 4.1.6)
+  ratyrate!
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
   spring

@@ -4,7 +4,7 @@ class Book < ActiveRecord::Base
   belongs_to :user
   has_many :books_genres
   has_many :genres, :through => :books_genres
-  has_many :ratings
+  ratyrate_rateable 'book_title'
 
   validates :title, :author_id, :year, presence: true
   validates :title, uniqueness: { scope: :year,

@@ -2,24 +2,18 @@
     <%= image_tag @book.cover.url %>
 </p>
 
-<% form_id = "book_#{@book.id}_rating" %>
-<% if user_signed_in? %> <!-- To avoid throwing an exception if no user is signed in -->
-    <% user_id = current_user.id %>
-<% else %>
-    <% user_id = -1 %>
-<% end %>
-<%= form_for @book.ratings.find_or_create_by(user_id: user_id), :html => {:id => form_id, :class => "star_rating_form"} do |f| %>
-    <%= f.hidden_field :book_id, :value => @book.id %>
-    <% if user_signed_in? %>
-        <%= f.hidden_field :user_id, :value => current_user.id %>
+<div class="row">
+  <!--<div class="small-2 large-2 columns">-->
+    <!--<%= imdb_style_rating_for @book, current_user%>-->
+  <!--</div>-->
+  <br>
+  <div class="small-2 large-4 columns">
+    <% if current_user %>
+        Book rating: <%= rating_for @book, "book_title", disable_after_rate: false%>
+        <br>
     <% end %>
-    <%= f.hidden_field :stars, :id => form_id + "_stars" %>
-<% end %>
-<% (1..5).each do |i| %>
-    <li class="rating_star" id="<%= form_id %>_<%= i %>" data-stars="<%= i %>" data-form-id="<%= form_id %>"></li>
-<% end %>
-<br>
-<br>
+  </div>
+
 
 <p>
   <strong>Title:</strong>
@@ -57,3 +51,4 @@
 
 <%= link_to "Back", books_path %>
 <%= link_to "Edit", edit_book_path(@book) if can? :update, Book %>
+</div>

@@ -1,8 +1,8 @@
 <p>
-  <strong>Genre Tag:</strong>
+  <strong>Genre:</strong>
   <%= @genre.tag %>
 </p>
-  <strong>Books:</strong>
+  <strong>Books listed:</strong>
 <ul>
     <% @genre.books.each do |book| %>
       <li><%= link_to(book.title, book_path(book)) %> </li>
