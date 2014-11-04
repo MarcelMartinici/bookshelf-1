@@ -40,7 +40,6 @@ class BooksController < ApplicationController
 
 
   def update
-
     if @book.update(book_params)
 
       @book.author.name = author_check
@@ -73,7 +72,7 @@ class BooksController < ApplicationController
 
   def genre_check
 
-    @book.genres << Genre.create_from_name(params[:book][:genres])
+    @book.genres = Genre.create_from_name(params[:book][:genres])
 
   end
 

@@ -13,7 +13,7 @@ class Book < ActiveRecord::Base
 
   ## Images
   has_attached_file :cover, :styles => { :medium => "300x300>", :small => "20x20>" }, :default_url => "/images/original/missing.png"
-  validates_attachment_content_type :cover, :content_type => /\Aimage\/.*\Z/
+  validates_attachment_content_type :cover, :content_type => "image/jpeg"
 
   ## Search
   scope :search, -> term {
