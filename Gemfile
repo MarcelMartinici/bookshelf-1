@@ -35,8 +35,7 @@ gem 'cancancan', '~> 1.9'
 # Pry
 gem "pry"
 
-# Paperclip - for file uploads
-gem "paperclip", "~> 4.2"
+gem 'carrierwave'
 
 gem 'bootstrap-sass'
 

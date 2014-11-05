@@ -11,9 +11,7 @@ class Book < ActiveRecord::Base
                                   message: "There can be only one issue a year",
                                   case_sensitive: false }
 
-  ## Images
-  has_attached_file :cover, :styles => { :medium => "300x300>", :small => "20x20>" }, :default_url => "/images/original/missing.png"
-  validates_attachment_content_type :cover, :content_type => "image/jpeg"
+  mount_uploader :cover, CoverUploader
 
   ## Search
   scope :search, -> term {

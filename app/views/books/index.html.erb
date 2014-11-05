@@ -18,7 +18,7 @@
     <tbody>
     <% @books.each do |book| %>
         <tr>
-          <td><%= image_tag book.cover.url, size: "20x20", alt: "Book cover" %></td>
+          <td><%= image_tag book.cover, size: "20x20", alt: "Book cover" %></td>
           <td><%= link_to book.title, book_path(book) %></td>
           <td><%= link_to book.author.name, author_path(book) %></td>
           <td><%= book.year %></td>

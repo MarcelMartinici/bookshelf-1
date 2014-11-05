@@ -28,7 +28,6 @@
     </div>
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li><a href="/">Home</a></li>
         <li><a href="/books">Books</a></li>
         <li><a href="/authors">Authors</a></li>
         <li><a href="/genres">Genres</a></li>
@@ -62,15 +61,19 @@
 <div class="jumbotron">
   <div class="container">
     <br>
+    <div class="search_bar">
     <%= form_tag books_path, :method => 'get' do %>
         <p>
-          <%= text_field_tag :search, params[:search] %>
-          <%= submit_tag "Search", :name => nil %>
+          <%= text_field_tag :search, params[:search], :placeholder => "Books, Authors", :class => "form-control" %>
+          <a class="search_btn"><%= submit_tag "Search", :name => nil, :class => "btn btn-default"%></a>
         </p>
     <% end %>
+    </div>
+    <div class="main_cont">
     <%= notice %>
     <%= alert %>
     <%= yield %>
+    </div>
   </div>
 </div>
 
@@ -83,9 +86,11 @@
 
   <hr>
 
-  <footer>
-    <p>&copy; Yopeso 2014</p>
-  </footer>
+  <div class="footer">
+    <div class="container">
+      <p class="text-muted">&copy; Yopeso 2014</p>
+    </div>
+  </div>
 </div>
 <!-- /container -->
 
