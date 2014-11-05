@@ -40,11 +40,11 @@ class BooksController < ApplicationController
 
 
   def update
+    @book.author.name = author_check
+
+    @book.genres = genre_check
+
     if @book.update(book_params)
-
-      @book.author.name = author_check
-
-      @book.genres = genre_check
 
       redirect_to @book
 
