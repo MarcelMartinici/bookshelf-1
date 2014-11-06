@@ -9,10 +9,6 @@ class UsersController < ApplicationController
 
   end
 
-  def show
-
-  end
-
   def find_user
 
     @user = User.find(params[:id])

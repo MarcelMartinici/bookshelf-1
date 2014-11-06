@@ -39,10 +39,6 @@ ActiveRecord::Schema.define(version: 20141104143959) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
-    t.string   "cover_file_name"
-    t.string   "cover_content_type"
-    t.integer  "cover_file_size"
-    t.datetime "cover_updated_at"
     t.string   "cover"
   end
 
@@ -91,14 +87,6 @@ ActiveRecord::Schema.define(version: 20141104143959) do
   end
 
   add_index "rating_caches", ["cacheable_id", "cacheable_type"], name: "index_rating_caches_on_cacheable_id_and_cacheable_type", using: :btree
-
-  create_table "ratings", force: true do |t|
-    t.integer  "stars",      default: 0
-    t.integer  "book_id"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "",        null: false
