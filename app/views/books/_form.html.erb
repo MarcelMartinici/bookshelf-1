@@ -12,17 +12,17 @@
     <% end %>
 
     <p>
-      <%= f.label :title %><br>
+      <%= f.label :title %>*<br>
       <%= f.text_field :title %>
     </p>
 
     <p>
-      <%= label_tag 'Author' %><br>
+      <%= label_tag 'Author' %>*<br>
       <%= text_field_tag 'book[author_name]', @book.author.try(:name) %>
     </p>
 
     <p>
-      <%= f.label :year %><br>
+      <%= f.label :year %>*<br>
       <%= f.number_field :year %>
     </p>
 

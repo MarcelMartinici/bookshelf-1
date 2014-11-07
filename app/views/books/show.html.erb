@@ -48,6 +48,6 @@
   <%= link_to @book.user.email, user_path(@book.user.id) %>
 </p>
 
-<%= link_to "Back", books_path %>
-<%= link_to "Edit", edit_book_path(@book) if can? :update, Book %>
+<%= link_to "Back", books_path, :class => "btn btn-default" %>
+<%= link_to "Edit", edit_book_path(@book), :class => "btn btn-default" if can? :update, Book %>
 </div>
