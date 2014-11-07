@@ -63,10 +63,8 @@
     <br>
     <div class="search_bar">
     <%= form_tag books_path, :method => 'get' do %>
-        <p>
-          <%= text_field_tag :search, params[:search], :placeholder => "Books, Authors", :class => "form-control" %>
-          <a class="search_btn"><%= submit_tag "Search", :name => nil, :class => "btn btn-default"%></a>
-        </p>
+          <%= text_field_tag :search, params[:search], :placeholder => "Books, Authors...", :class => "form-control" %>
+          <%= submit_tag "Search", :name => nil, :class => "btn btn-default"%>
     <% end %>
     </div>
     <div class="main_cont">

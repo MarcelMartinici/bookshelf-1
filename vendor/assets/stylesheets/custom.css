@@ -1,14 +1,10 @@
 .search_bar {
     float: right;
-    width: 300px;
     margin-top: 3%;
-}
-.search_btn {
-    float: right;
 }
 .cover {
     float: right;
 }
 .main_cont {
-    margin-top: 10%;
+    margin-top: 1%;
 }
